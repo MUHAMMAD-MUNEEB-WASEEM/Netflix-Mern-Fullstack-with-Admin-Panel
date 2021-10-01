@@ -5,7 +5,7 @@ import { useRef } from 'react'
 import ListItem from '../listItem/ListItem'
 import './List.scss'
 
-function List() {
+function List({list}) {
     const [slideNumber, setSlideNumber] = useState(0)
     const [isMoved, setIsMoved] = useState(false)
 
@@ -26,7 +26,7 @@ function List() {
     }
     return (
         <div className="list">
-            <span className="list__title">Continue to watch</span>
+            <span className="list__title">{list.title}</span>
             <div className="wrapper">
                 <ArrowBackIosOutlined 
                     className="sliderArrow left"
@@ -34,16 +34,11 @@ function List() {
                     style={{display: !isMoved && 'none'}}
                 />
                 <div className="container" ref={listRef}>
-                    <ListItem index={0}/>
-                    <ListItem index={1}/>
-                    <ListItem index={2}/>
-                    <ListItem index={3}/>
-                    <ListItem index={4}/>
-                    <ListItem index={5}/>
-                    <ListItem index={6}/>
-                    <ListItem index={7}/>
-                    <ListItem index={8}/>
-                    <ListItem index={9}/>
+                    {list.content.map((item, i)=>(
+                        <ListItem key={i} index={i} item={item}/>
+                    ))}
+                    
+                    
                 </div>
                 <ArrowForwardIosOutlined 
                     className="sliderArrow right"
