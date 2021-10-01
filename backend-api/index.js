@@ -8,6 +8,7 @@ dotenv.config();
 //routes
 
 const authRoute = require('./routes/auth');
+const userRoutes = require('./routes/users');
 
 const app = express()
 
@@ -49,7 +50,7 @@ app.use((req, res, next)=>{
 //middleware to handle routes
 
 app.use('/api/auth', authRoute);
-// app.use('/orders', orderRoutes);
+app.use('/api/users', userRoutes);
 // app.use('/user', userRoutes);
 
 //middleware for error handling
