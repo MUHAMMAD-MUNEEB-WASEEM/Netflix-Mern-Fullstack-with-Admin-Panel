@@ -5,6 +5,10 @@ const dotenv = require('dotenv')
 
 dotenv.config();
 
+//routes
+
+const authRoute = require('./routes/auth');
+
 const app = express()
 
 //mongodb connection
@@ -44,7 +48,7 @@ app.use((req, res, next)=>{
 
 //middleware to handle routes
 
-// app.use('/products', productRoutes);
+app.use('/api/auth', authRoute);
 // app.use('/orders', orderRoutes);
 // app.use('/user', userRoutes);
 
