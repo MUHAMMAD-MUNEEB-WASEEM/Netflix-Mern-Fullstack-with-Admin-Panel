@@ -9,6 +9,7 @@ dotenv.config();
 
 const authRoute = require('./routes/auth');
 const userRoutes = require('./routes/users');
+const movieRoutes = require('./routes/movies');
 
 const app = express()
 
@@ -51,7 +52,7 @@ app.use((req, res, next)=>{
 
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoutes);
-// app.use('/user', userRoutes);
+app.use('/api/movies', movieRoutes);
 
 //middleware for error handling
 //if error not caught by above routes, then below works
