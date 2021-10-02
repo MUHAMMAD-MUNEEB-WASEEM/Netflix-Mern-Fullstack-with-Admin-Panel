@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './ProductList.css'
 
 import { productRows } from '../../DummyData';
@@ -6,42 +6,47 @@ import { productRows } from '../../DummyData';
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import {getMovies} from '../../redux/movie/movieApiCall';
+import {deleteMovie} from '../../redux/movie/movieApiCall';
 
 
 function ProductList() {
 
     const [data, setData] = useState(productRows);
+    const dispatch = useDispatch()
+    const movies = useSelector(state=>state.movie.movies);
 
     const handleDelete = (id) => {
-        setData(data.filter(item => item.id !== id))
+        deleteMovie(id, dispatch)
     }
 
+    useEffect(()=>{
+      getMovies(dispatch)
+    },[dispatch])
+
+    console.log(movies)
+
     const columns = [
-        { field: "id", headerName: "ID", width: 90 },
+        { field: "_id", headerName: "ID", width: 90 },
         {
-          field: "product",
-          headerName: "Product",
+          field: "movie",
+          headerName: "Movie",
           width: 200,
           renderCell: (params) => {
             return (
               <div className="productList__item">
                 <img className="productList__img" src={params.row.img} alt="" />
-                {params.row.name}
+                {params.row.title}
               </div>
             );
           },
         },
-        { field: "stock", headerName: "Stock", width: 200 },
-        {
-          field: "status",
-          headerName: "Status",
-          width: 120,
-        },
-        {
-          field: "price",
-          headerName: "Price",
-          width: 160,
-        },
+        { field: "genre", headerName: "Genre", width: 120 },
+        { field: "year", headerName: "Year", width: 120 },
+        { field: "limit", headerName: "limit", width: 120 },
+        { field: "isSeries", headerName: "isSeries", width: 120 },
         {
           field: "action",
           headerName: "Action",
@@ -54,7 +59,7 @@ function ProductList() {
                 </Link>
                 <DeleteOutline
                   className="productList__delete"
-                  onClick={() => handleDelete(params.row.id)}
+                  onClick={() => handleDelete(params.row._id)}
                 />
               </>
             );
@@ -65,11 +70,12 @@ function ProductList() {
     return (
         <div className="productList">
            <DataGrid
-            rows={data}
+            rows={movies}
             disableSelectionOnClick
             columns={columns}
             pageSize={8}
             checkboxSelection
+            getRowId={r=>r._id}
          />
         </div>
     )
