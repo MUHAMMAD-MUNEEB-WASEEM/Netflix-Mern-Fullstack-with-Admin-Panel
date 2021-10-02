@@ -1,8 +1,35 @@
 import { InfoOutlined, PlayArrow } from '@material-ui/icons'
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import './Featured.scss'
 
 function Featured({type}) {
+    const [content, setContent] = useState({})
+    let componentMounted = true;
+
+    useEffect(()=>{
+        if (componentMounted){
+
+        
+        axios.get(`movies/random?type=${type ? type : ""}`, {
+            headers : {
+                authorization : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzE1MjQ1MywiZXhwIjoxNjMzMTU2MDUzfQ.Rl_zqq0wN3hYLUdl6c_ne00XkdgMfyR5NNLUG8sTu38"
+            }
+        })
+            .then(response => {
+                setContent(response.data[0])
+                console.log(response.data[0])
+            })
+            .catch(err => {
+                console.log(err)
+            }
+            )
+        }
+        return () => { // This code runs when component is unmounted
+            componentMounted = false; // (4) set it to false if we leave the page
+        }
+    },[type])
+
     return (
         <div className="featured">
 
@@ -30,16 +57,16 @@ function Featured({type}) {
                 </div>
             )}
             <img
-                src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                src={content.img}
                 alt=""
             />
 
             <div className="info">
                 <img
-                    src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABUZdeG1DrMstq-YKHZ-dA-cx2uQN_YbCYx7RABDk0y7F8ZK6nzgCz4bp5qJVgMizPbVpIvXrd4xMBQAuNe0xmuW2WjoeGMDn1cFO.webp?r=df1"
+                    src={content.imgSm}//Should be content.imgTitle
                     alt=""
                 />
-                <span className="desc">Watch anywhere. Cancel anytime.</span>
+                <span className="desc">{content.desc}</span>
                 
                 <div className="buttons">
 
