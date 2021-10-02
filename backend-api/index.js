@@ -18,7 +18,7 @@ const app = express()
 mongoose.connect(process.env.MONGO_URL,
 {
     useNewUrlParser:true,
-    useUnifiedTopology:true
+    useUnifiedTopology:true,
 })
 .then(()=>console.log("Db connection successful"))
 .catch(()=>console.log('Error in Db connection'));
