@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect, useMemo } from 'react'
+import { useSelector } from 'react-redux'
 import Chart from '../../components/Chart/Chart'
 import FeaturedInfo from '../../components/FeaturedInfo/FeaturedInfo'
 import WidgetsLarge from '../../components/WidgetsLarge/WidgetsLarge'
@@ -50,7 +51,6 @@ function Home() {
         }
     },[MONTHS]) //Whenever item changes, useEffect will get fire
     
-     
     return (
         <div className="home">
             <FeaturedInfo/>

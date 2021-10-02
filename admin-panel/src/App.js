@@ -12,23 +12,42 @@ import ProductList from './pages/ProductList/ProductList';
 import Product from './pages/Product/Product';
 import NewProduct from './pages/NewProduct/NewProduct';
 import axios from 'axios';
-
+import LoginPage from './pages/login/LoginPage';
+import { useSelector } from 'react-redux';
+import {Redirect} from 'react-router-dom'
 
 function App() {
+  const user = useSelector(state=>state.user.user)
+
+  useEffect(()=>{
+    localStorage.setItem("user", JSON.stringify(user))//user is not name of store, it the name of key inside state
+  }, [user])
+
 
   return (
 
     <Router>
+      <Switch>
 
+       <Route path="/login">
+         {!user ? <LoginPage /> : <Redirect to="/"/>}
+         
+         </Route>
+
+         {user && (
+          <>
+        
         <TopBar/>
 
         <div className="container">
           <Sidebar/> 
 
-          <Switch>
-
             <Route exact path="/">
-              <Home/>
+              {user ? <Home/> : <Redirect to="/login"/>}
+            </Route>
+
+            <Route exact path="/login">
+              <LoginPage/>
             </Route>
 
             <Route path="/users">
@@ -54,10 +73,11 @@ function App() {
             <Route path="/newproduct">
               <NewProduct/>
             </Route>
-
-          </Switch>
         </div>
-        </Router>
+        </>
+         )}
+        </Switch>
+      </Router>
   );
 }
 

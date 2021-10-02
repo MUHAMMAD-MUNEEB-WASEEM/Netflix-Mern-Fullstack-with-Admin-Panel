@@ -1,24 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const authSlice = createSlice({
+export const movieSlice = createSlice({
   name: 'user',
   initialState:{
-    user: JSON.parse(localStorage.getItem("user")) || null,
+    movies: [],
     isFetching: false,
     error: false
   },
   reducers: {
-    loginStart: (state) => {
+    getMoviesStart: (state) => {
       state.user = null;
       state.isFetching = true;
       state.error = false;
     },
-    loginSuccess: (state, action) => {
+    getMoviesSuccess: (state, action) => {
       state.user = action.payload;
       state.isFetching = false;
       state.error = false;
     },
-    loginFailure: (state) => {
+    getMoviesFailure: (state) => {
       state.user = null;
       state.isFetching = false;
       state.error = true;
@@ -31,6 +31,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { loginStart, loginSuccess, loginFailure, logout} = authSlice.actions;
+export const { loginStart, loginSuccess, loginFailure, logout} = movieSlice.actions;
 
-export default authSlice.reducer;
+export default movieSlice.reducer;
