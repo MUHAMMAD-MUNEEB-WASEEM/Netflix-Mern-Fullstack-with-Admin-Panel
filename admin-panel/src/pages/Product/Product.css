@@ -1,0 +1,128 @@
+.product{
+    flex: 0.8;
+    padding: 20px;
+}
+
+.productContainer__title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.productAdd__button{
+    width: 80px;
+    border: none;
+    padding: 5px;
+    background-color: teal;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.product__top{
+    display: flex;
+}
+
+.productTop__left, .productTop__right{
+    flex: 1
+}
+
+.productTop__right{
+    padding: 20px;
+    margin: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.productInfo__img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+
+
+.productInfo__top{
+    display: flex;
+    align-items: center;
+}
+
+.product__name{
+    font-weight: 600;
+}
+
+.productInfo__bottom{
+    margin-top: 10px;
+}
+
+.productInfo__item{
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.productInfo__key{
+    font-weight: 300;
+}
+
+.product__bottom{
+    padding: 20px;
+    margin: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.product__form{
+    display: flex;
+    justify-content: space-between;
+}
+
+.productForm__left{
+    display: flex;
+    flex-direction: column;
+}
+
+.productForm__left > label {
+    margin-bottom: 10px;
+    color: gray;
+}
+.productForm__left > input {
+    margin-bottom: 10px;
+    border: none;
+    padding: 5px;
+    border-bottom: 1px solid gray;
+}
+
+.productForm__left > select {
+    margin-bottom: 10px;
+}
+
+.product__uploading{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.productForm__right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.productRight__upload{
+    display: flex;
+    align-items: center;
+}
+.product__button{
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: darkblue;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
