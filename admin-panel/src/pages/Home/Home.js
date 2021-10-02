@@ -34,7 +34,7 @@ function Home() {
             
         if (componentMounted){
     
-        axios.get('/users/stats')
+        axios.get('users/stats')
             .then(response => {
                 response.data.sort((a,b)=> (a._id - b._id)).map((item) => (
                   setUserStats((prev)=> [...prev, {name:MONTHS[item._id - 1], "New User": item.total}

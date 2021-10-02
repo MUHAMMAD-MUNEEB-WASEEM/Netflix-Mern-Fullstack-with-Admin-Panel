@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './WidgetsSmall.css'
 
 //material ui
 import { Visibility } from "@material-ui/icons";
+import axios from 'axios';
+import { Avatar } from '@material-ui/core';
 
 function WidgetsSmall() {
+    const [newUsers, setNewUsers] = useState([])
+
+    useEffect(()=>{
+
+        axios.get('users?new=true', {
+            headers : {
+                authorization : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzE1Nzg0NCwiZXhwIjoxNjMzMTYxNDQ0fQ.yz0CZSzBsyn6fPPAVxF_Z_1cdkWeuPOj41EQRlqJVzk"
+            }
+        }).
+            then(response => {
+                setNewUsers(response.data)
+                console.log(response.data)
+                
+            }).
+            catch(err => {
+                console.log(err)
+            })
+    },[])
     return (
         <div className="widgetsSmall">
             <span className="widgetsSmall__title">New Join Members</span>
@@ -13,12 +33,17 @@ function WidgetsSmall() {
 
                 {/*First User*/}
 
-                <li className="widgetsSmallList__item">
-                    <img className="widgetSmall__img" src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" />
+                {newUsers.map((user, i) => (
+                    <li key={i} className="widgetsSmallList__item">
+
+                    {user.profilePic ? (
+                        <img className="widgetSmall__img" src={user.profilePic} alt="" />
+                    ):(
+                        <Avatar>{user.username[0]}</Avatar>
+                    )}
 
                     <div className="widgetsSmall__user">
-                        <span className="widgetsSmallList__username">John Smith</span>
-                        <span className="widgetsSmallList__title">Electrical Engineer</span>   
+                        <span className="widgetsSmallList__username">{user.username}</span>
                     </div>
                     <button className="widgetsSmall__button">
                         <Visibility className="widgetSmall__icon" />
@@ -26,73 +51,8 @@ function WidgetsSmall() {
                     </button>
                                     
                 </li>
-
-                {/*Second user*/}
-    
-                <li className="widgetsSmallList__item">
-                    <img className="widgetSmall__img" src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" />
-
-                    <div className="widgetsSmall__user">
-                        <span className="widgetsSmallList__username">John Smith</span>
-                        <span className="widgetsSmallList__title">Electrical Engineer</span>   
-                    </div>
-                    <button className="widgetsSmall__button">
-                        <Visibility className="widgetSmall__icon" />
-                        Display
-                    </button>
-                                    
-                </li>
-
-                {/*Third User*/}
-
-                <li className="widgetsSmallList__item">
-                    <img className="widgetSmall__img" src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" />
-
-                    <div className="widgetsSmall__user">
-                        <span className="widgetsSmallList__username">John Smith</span>
-                        <span className="widgetsSmallList__title">Electrical Engineer</span>   
-                    </div>
-                    <button className="widgetsSmall__button">
-                        <Visibility className="widgetSmall__icon" />
-                        Display
-                    </button>
-                                    
-                </li>
-
-                {/*Fourth User*/}
-
-                <li className="widgetsSmallList__item">
-                    <img className="widgetSmall__img" src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" />
-
-                    <div className="widgetsSmall__user">
-                        <span className="widgetsSmallList__username">John Smith</span>
-                        <span className="widgetsSmallList__title">Electrical Engineer</span>   
-                    </div>
-                    <button className="widgetsSmall__button">
-                        <Visibility className="widgetSmall__icon" />
-                        Display
-                    </button>
-                                    
-                </li>
-
-                {/*Fifth User*/}
-
-                <li className="widgetsSmallList__item">
-                    <img className="widgetSmall__img" src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" />
-
-                    <div className="widgetsSmall__user">
-                        <span className="widgetsSmallList__username">John Smith</span>
-                        <span className="widgetsSmallList__title">Electrical Engineer</span>   
-                    </div>
-                    <button className="widgetsSmall__button">
-                        <Visibility className="widgetSmall__icon" />
-                        Display
-                    </button>
-                                    
-                </li>
-
-
-
+                ) )}
+                
             </ul>
 
         </div>

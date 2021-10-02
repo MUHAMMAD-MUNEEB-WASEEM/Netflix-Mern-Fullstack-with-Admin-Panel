@@ -43,7 +43,7 @@ function App() {
               <NewUser/>
             </Route>
 
-            <Route path="/products">
+            <Route path="/movies">
               <ProductList/>
             </Route>
 

@@ -15,6 +15,9 @@ import {
     ChatBubbleOutline,
     WorkOutline,
     Report,
+    PlayArrow,
+    PlayCircleFilledOutlined,
+    PlayCircleOutline,
   } from "@material-ui/icons";
 import { Link } from 'react-router-dom';
 
@@ -69,10 +72,10 @@ function Sidebar() {
                             </li>
                         </Link>
 
-                        <Link to="/products" className="link">
+                        <Link to="/movies" className="link">
                             <li className="sidebarList__item">
-                                <Storefront className="sidebar__icon" />
-                                Products
+                                <PlayCircleOutline className="sidebar__icon" />
+                                Movies
                             </li>
                         </Link>
 

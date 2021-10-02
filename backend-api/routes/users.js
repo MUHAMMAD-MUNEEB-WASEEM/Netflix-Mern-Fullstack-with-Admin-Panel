@@ -95,7 +95,7 @@ router.get('/', checkAuth,(req, res, next)=>{
 
         query ? User.find()
                     .sort({_id: -1}) //sort latest
-                    .limit(2)
+                    .limit(5)
                     .exec()
                     .then(docs=>{
                         res.status(200).json(docs)
