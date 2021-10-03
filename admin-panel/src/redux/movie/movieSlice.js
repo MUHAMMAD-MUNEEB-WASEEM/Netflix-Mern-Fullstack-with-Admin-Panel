@@ -44,13 +44,31 @@ export const movieSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+
+    //creating movie
+
+    createMovieStart: (state) => {
+      state.movies = state.movies;
+      state.isFetching = true;
+      state.error = false;
+    },
+    createMovieSuccess: (state, action) => {
+      state.movies = [...state.movies, action.payload];//add one movie in all movies
+      state.isFetching = false;
+      state.error = false;
+    },
+    createMovieFailure: (state) => {
+      state.movies = state.movies
+      state.isFetching = false;
+      state.error = true;
+    },
   },
 });
 
 
 
 
-export const { getMoviesStart, getMoviesSuccess, getMoviesFailure, deleteMovieStart, deleteMovieSuccess, deleteMovieFailure} = movieSlice.actions;
+export const { getMoviesStart, getMoviesSuccess, getMoviesFailure, deleteMovieStart, deleteMovieSuccess, deleteMovieFailure, createMovieStart, createMovieSuccess, createMovieFailure} = movieSlice.actions;
 
 export default movieSlice.reducer;
 
