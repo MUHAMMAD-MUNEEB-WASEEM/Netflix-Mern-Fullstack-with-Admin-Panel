@@ -11,7 +11,7 @@ export const listSlice = createSlice({
   },
   reducers: {
 
-    //getting movies
+    //getting lists
     getListsStart: (state) => {
       state.lists = [];
       state.isFetching = true;
@@ -64,27 +64,27 @@ export const listSlice = createSlice({
       state.error = true;
     },
 
-    // updateMovieStart: (state) => {
-    //   state.movies = state.movies;
-    //   state.isFetching = true;
-    //   state.error = false;
-    // },
-    // updateMovieSuccess: (state, action) => {
-    //   state.movies = state.movies.map(movie=> movie._id === action.payload._id && action.payload)//if movie id matches to our movie id, then it will be replace by action.payload which is movie
-    //   state.isFetching = false;
-    //   state.error = false;
-    // },
-    // updateMovieFailure: (state) => {
-    //   state.movies = state.movies
-    //   state.isFetching = false;
-    //   state.error = true;
-    // },
+    updateListStart: (state) => {
+      state.lists = state.lists;
+      state.isFetching = true;
+      state.error = false;
+    },
+    updateListSuccess: (state, action) => {
+      state.lists = state.lists.map(list=> list._id === action.payload._id && action.payload)//if movie id matches to our movie id, then it will be replace by action.payload which is movie
+      state.isFetching = false;
+      state.error = false;
+    },
+    updateListFailure: (state) => {
+      state.lists = state.lists
+      state.isFetching = false;
+      state.error = true;
+    },
   },
 });
 
 
 
 
-export const { getListsStart, getListsSuccess, getListsFailure, deleteListsStart, deleteListsSuccess, deleteListsFailure, createListStart, createListSuccess, createListFailure} = listSlice.actions;
+export const { getListsStart, getListsSuccess, getListsFailure, deleteListsStart, deleteListsSuccess, deleteListsFailure, createListStart, createListSuccess, createListFailure, updateListStart, updateListFailure, updateListSuccess } = listSlice.actions;
 
 export default listSlice.reducer;
