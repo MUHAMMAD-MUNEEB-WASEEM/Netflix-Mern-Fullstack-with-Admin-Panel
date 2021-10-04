@@ -16,6 +16,7 @@ import LoginPage from './pages/login/LoginPage';
 import { useSelector } from 'react-redux';
 import {Redirect} from 'react-router-dom'
 import ListList from './pages/listList/ListList';
+import List from './pages/list/List'
 
 function App() {
   const user = useSelector(state=>state.user.user)
@@ -79,13 +80,13 @@ function App() {
               <ListList/>
             </Route>
 
-            {/* <Route path="/list/:listId">
-              <Product/>
+            <Route path="/list/:listId">
+              <List/>
             </Route>
 
             <Route path="/newlist">
               <NewProduct/>
-            </Route> */}
+            </Route>
         </div>
         </>
          )}

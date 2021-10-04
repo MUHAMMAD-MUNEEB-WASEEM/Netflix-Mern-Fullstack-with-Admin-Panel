@@ -16,7 +16,6 @@ export const getLists = async (dispatch) => {
     })
 };
 
-//delete
 export const deleteList = async (id, dispatch) => {
     dispatch(deleteListsStart());
     try {
@@ -27,6 +26,6 @@ export const deleteList = async (id, dispatch) => {
       });
       dispatch(deleteListsSuccess(id));
     } catch (err) {
-      dispatch(deleteListsFailure(id));
+      dispatch(deleteListsFailure());
     }
   };
