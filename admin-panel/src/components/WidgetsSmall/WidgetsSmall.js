@@ -13,7 +13,7 @@ function WidgetsSmall() {
 
         axios.get('users?new=true', {
             headers : {
-                authorization : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzE3Njg2MywiZXhwIjoxNjMzMTgwNDYzfQ.eXhV3BMcL8nKHRn1lBx0MfjIfoHgHC0R7ZDCeFCpPHs"
+                authorization : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzMyMzA0NSwiZXhwIjoxNjMzMzI2NjQ1fQ.VPoOz8TCMKYt2ymTaEkG4BZ1vrNqgTke2wph6BFPSGE"
             }
         }).
             then(response => {

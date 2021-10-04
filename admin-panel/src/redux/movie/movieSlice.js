@@ -62,13 +62,29 @@ export const movieSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+
+    updateMovieStart: (state) => {
+      state.movies = state.movies;
+      state.isFetching = true;
+      state.error = false;
+    },
+    updateMovieSuccess: (state, action) => {
+      state.movies = state.movies.map(movie=> movie._id === action.payload._id && action.payload)//if movie id matches to our movie id, then it will be replace by action.payload which is movie
+      state.isFetching = false;
+      state.error = false;
+    },
+    updateMovieFailure: (state) => {
+      state.movies = state.movies
+      state.isFetching = false;
+      state.error = true;
+    },
   },
 });
 
 
 
 
-export const { getMoviesStart, getMoviesSuccess, getMoviesFailure, deleteMovieStart, deleteMovieSuccess, deleteMovieFailure, createMovieStart, createMovieSuccess, createMovieFailure} = movieSlice.actions;
+export const { getMoviesStart, getMoviesSuccess, getMoviesFailure, deleteMovieStart, deleteMovieSuccess, deleteMovieFailure, createMovieStart, createMovieSuccess, createMovieFailure, updateMovieStart, updateMovieSuccess, updateMovieFailure} = movieSlice.actions;
 
 export default movieSlice.reducer;
 

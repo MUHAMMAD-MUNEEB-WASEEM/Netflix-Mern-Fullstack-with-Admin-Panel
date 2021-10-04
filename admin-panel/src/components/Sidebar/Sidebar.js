@@ -18,6 +18,7 @@ import {
     PlayArrow,
     PlayCircleFilledOutlined,
     PlayCircleOutline,
+    List,
   } from "@material-ui/icons";
 import { Link } from 'react-router-dom';
 
@@ -79,10 +80,12 @@ function Sidebar() {
                             </li>
                         </Link>
 
-                        <li className="sidebarList__item">
-                           <AttachMoney className="sidebar__icon" />
-                            Transactions
-                        </li>
+                        <Link to="/lists" className="link">
+                            <li className="sidebarList__item">
+                            <List className="sidebar__icon" />
+                                Lists
+                            </li>
+                        </Link>
 
                     </ul>
                 </div>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getMoviesStart, getMoviesSuccess, getMoviesFailure, deleteMovieStart, deleteMovieSuccess, deleteMovieFailure, createMovieStart, createMovieSuccess, createMovieFailure } from './movieSlice';
+import { getMoviesStart, getMoviesSuccess, getMoviesFailure, deleteMovieStart, deleteMovieSuccess, deleteMovieFailure, createMovieStart, createMovieSuccess, createMovieFailure, updateMovieStart, updateMovieSuccess, updateMovieFailure } from './movieSlice';
 
 
 export const getMovies = async (dispatch) => {
@@ -47,3 +47,19 @@ export const createMovie = async (movie, dispatch) => {
         dispatch(createMovieFailure())
     })
 };
+
+export const updateMovie = async (movie, dispatch) => {
+  dispatch(updateMovieStart())
+  axios.put('movies', movie, {
+      headers: {
+          authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzI1MzcwNSwiZXhwIjoxNjMzMjU3MzA1fQ.X0AGFgLhfOmDzlHLXtdxIYl-mre78KiyjhOm9ucXYQs" //+ JSON.parse(localStorage.getItem("user")).accessToken
+      }
+  })
+  .then(response => {
+    dispatch(updateMovieSuccess(response.data))
+  })
+  .catch(err => {
+      dispatch(updateMovieFailure())
+  })
+};
+
