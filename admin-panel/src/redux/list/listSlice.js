@@ -85,6 +85,6 @@ export const listSlice = createSlice({
 
 
 
-export const { getMoviesStart, getMoviesSuccess, getMoviesFailure, deleteMovieStart, deleteMovieSuccess, deleteMovieFailure, createMovieStart, createMovieSuccess, createMovieFailure, updateMovieStart, updateMovieSuccess, updateMovieFailure} = listSlice.actions;
+export const { getListsStart, getListsSuccess, getListsFailure, deleteListsStart, deleteListsSuccess, deleteListsFailure} = listSlice.actions;
 
 export default listSlice.reducer;

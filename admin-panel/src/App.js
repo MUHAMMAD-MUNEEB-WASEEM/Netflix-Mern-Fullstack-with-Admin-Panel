@@ -15,6 +15,7 @@ import axios from 'axios';
 import LoginPage from './pages/login/LoginPage';
 import { useSelector } from 'react-redux';
 import {Redirect} from 'react-router-dom'
+import ListList from './pages/listList/ListList';
 
 function App() {
   const user = useSelector(state=>state.user.user)
@@ -75,7 +76,7 @@ function App() {
             </Route>
 
             <Route path="/lists">
-              <ProductList/>
+              <ListList/>
             </Route>
 
             {/* <Route path="/list/:listId">

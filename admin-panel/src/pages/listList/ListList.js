@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import {getMovies} from '../../redux/movie/movieApiCall';
-import { getLists } from '../../redux/list/listApiCall';
+import { deleteList, getLists } from '../../redux/list/listApiCall';
 import {deleteMovie} from '../../redux/movie/movieApiCall';
 
 
@@ -18,20 +18,19 @@ function ListList() {
     const [data, setData] = useState(productRows);
     const dispatch = useDispatch()
 
-    const list = useSelector(state => state.list.lists);
+    const lists = useSelector(state => state.list.lists);
+    console.log(lists)
 
     const handleDelete = (id) => {
-        // deleteMovie(id, dispatch)
+        deleteList(id, dispatch)
     }
 
     useEffect(()=>{
       getLists(dispatch);
     },[dispatch])
 
-    console.log(movies)
-
     const columns = [
-        { field: "_id", headerName: "ID", width: 2500 },
+        { field: "_id", headerName: "ID", width: 250 },
         { field: "title", headerName: "title", width: 250 },
         { field: "genre", headerName: "Genre", width: 150 },
         { field: "type", headerName: "type", width: 150 },
