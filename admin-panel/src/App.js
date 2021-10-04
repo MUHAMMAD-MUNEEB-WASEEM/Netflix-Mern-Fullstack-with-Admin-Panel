@@ -17,6 +17,7 @@ import { useSelector } from 'react-redux';
 import {Redirect} from 'react-router-dom'
 import ListList from './pages/listList/ListList';
 import List from './pages/list/List'
+import NewList from './pages/newList/NewList';
 
 function App() {
   const user = useSelector(state=>state.user.user)
@@ -85,7 +86,7 @@ function App() {
             </Route>
 
             <Route path="/newlist">
-              <NewProduct/>
+              <NewList/>
             </Route>
         </div>
         </>

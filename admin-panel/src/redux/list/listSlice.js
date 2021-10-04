@@ -46,23 +46,23 @@ export const listSlice = createSlice({
       state.error = true;
     },
 
-    // //creating movie
+    //creating movie
 
-    // createMovieStart: (state) => {
-    //   state.movies = state.movies;
-    //   state.isFetching = true;
-    //   state.error = false;
-    // },
-    // createMovieSuccess: (state, action) => {
-    //   state.movies = [...state.movies, action.payload];//add one movie in all movies
-    //   state.isFetching = false;
-    //   state.error = false;
-    // },
-    // createMovieFailure: (state) => {
-    //   state.movies = state.movies
-    //   state.isFetching = false;
-    //   state.error = true;
-    // },
+    createListStart: (state) => {
+      state.lists = state.lists;
+      state.isFetching = true;
+      state.error = false;
+    },
+    createListSuccess: (state, action) => {
+      state.lists = [...state.lists, action.payload];//add one movie in all lists
+      state.isFetching = false;
+      state.error = false;
+    },
+    createListFailure: (state) => {
+      state.lists = state.lists
+      state.isFetching = false;
+      state.error = true;
+    },
 
     // updateMovieStart: (state) => {
     //   state.movies = state.movies;
@@ -85,6 +85,6 @@ export const listSlice = createSlice({
 
 
 
-export const { getListsStart, getListsSuccess, getListsFailure, deleteListsStart, deleteListsSuccess, deleteListsFailure} = listSlice.actions;
+export const { getListsStart, getListsSuccess, getListsFailure, deleteListsStart, deleteListsSuccess, deleteListsFailure, createListStart, createListSuccess, createListFailure} = listSlice.actions;
 
 export default listSlice.reducer;
