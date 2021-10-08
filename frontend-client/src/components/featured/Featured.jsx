@@ -3,7 +3,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './Featured.scss'
 
-function Featured({type}) {
+function Featured({type, setGenre}) {
     const [content, setContent] = useState({})
     let componentMounted = true;
 
@@ -13,7 +13,7 @@ function Featured({type}) {
         
         axios.get(`movies/random?type=${type ? type : ""}`, {
             headers : {
-                authorization : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzE1MjQ1MywiZXhwIjoxNjMzMTU2MDUzfQ.Rl_zqq0wN3hYLUdl6c_ne00XkdgMfyR5NNLUG8sTu38"
+                authorization : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzY3NzY0MSwiZXhwIjoxNjMzNjgxMjQxfQ.ANmuIvH6XRZYDL5DiNeXfPOgSxuhUfitl2OmjGGu4hQ"
             }
         })
             .then(response => {
@@ -38,7 +38,7 @@ function Featured({type}) {
                     
                     <span>{type === "movie" ? 'Movies' : 'Series'}</span>
                     
-                    <select name="genre" id="genre">
+                    <select name="genre" id="genre" onChange={e=>setGenre(e.target.value)}>
                         <option>Genre</option>
                         <option value="adventure">Adventure</option>
                         <option value="comedy">Comedy</option>

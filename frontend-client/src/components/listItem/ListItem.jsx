@@ -22,7 +22,7 @@ function ListItem({index, item}) {
 
         axios.get('movies/find/' + item, {
             headers : {
-                authorization : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzE1MjQ1MywiZXhwIjoxNjMzMTU2MDUzfQ.Rl_zqq0wN3hYLUdl6c_ne00XkdgMfyR5NNLUG8sTu38"
+                authorization : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzY3NzY0MSwiZXhwIjoxNjMzNjgxMjQxfQ.ANmuIvH6XRZYDL5DiNeXfPOgSxuhUfitl2OmjGGu4hQ"
             }
         })
             .then(response => {
