@@ -9,9 +9,9 @@ function Register() {
 
     const history = useHistory();
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [username, setUsername] = useState("")
 
     const emailRef = useRef();
     const usernameRef = useRef()
@@ -23,18 +23,29 @@ function Register() {
 
     const handleFinish = async (e) => {
         e.preventDefault()
-        setUsername(usernameRef.current.value);
-        setPassword(passwordRef.current.value);
 
         try{
-            await axios.post('auth/register', (email, password, username))
-        }catch(error){
-            console.log(error);
+           
+            await axios.post('auth/register', {username, email, password})   
+        }catch(err){
+            console.log(err)
         }
-
-        history.push('/login')
+        setUsername("");
+        setPassword("")              
     }
+    
 
+    // const handleTest = async (e) => {
+    //     e.preventDefault()
+    //     try{
+    
+    //         await axios.post('auth/register', {username, email, password})   
+    //     }catch(err){
+    //         console.log(err)
+    //     }
+
+    // }
+        console.log(email, password, username)
     return (
         <div className="register">
 
@@ -62,13 +73,15 @@ function Register() {
                
                          </div>
                     ): (
+                        <>
                         <form className="input">
 
-                            <input type="text" placeholder="username" ref={usernameRef}/>
-                            <input type="password" placeholder="password" ref={passwordRef}/>
+                            <input value={username} type="text" placeholder="username" onChange={e=>setUsername(e.target.value)}/>
+                            <input value={password} type="password" placeholder="password" onChange={e=>setPassword(e.target.value)}/>
                             <button onClick={handleFinish} className="register__button">Start</button>
                
                         </form>
+                    </>
                     )
                 }     
             </div>
