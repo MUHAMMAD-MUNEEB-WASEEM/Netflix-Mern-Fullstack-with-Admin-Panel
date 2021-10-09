@@ -1,21 +1,24 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import './Login.scss'
+import { useHistory } from 'react-router'
+import { useDispatch } from 'react-redux';
+import LoginApi from '../../redux/auth/apiCall'
 
 function Login() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-  
+    
+    const history = useHistory()
+    const dispatch = useDispatch()
+    
+
     const handleLogin = async (e) => {
         e.preventDefault()
-
-        try{
-            await axios.post('login')
-        }catch(err) {
-            console.log(err)
-        }
+        LoginApi({email, password}, dispatch);
     }
+        
     return (
         <div className="login">
 

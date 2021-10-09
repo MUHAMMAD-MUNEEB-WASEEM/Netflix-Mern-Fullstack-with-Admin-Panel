@@ -7,3 +7,19 @@
   text-decoration: none;
   color: inherit;
 }
+
+/*responsivness*/
+
+@mixin tablet {
+  @media (max-with: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-with: 480px) {
+    @content;
+  }
+}
+
+

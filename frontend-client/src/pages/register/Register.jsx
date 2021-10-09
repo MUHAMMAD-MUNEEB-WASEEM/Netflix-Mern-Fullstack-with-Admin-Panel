@@ -25,8 +25,8 @@ function Register() {
         e.preventDefault()
 
         try{
-           
             await axios.post('auth/register', {username, email, password})   
+            history.push('/login')
         }catch(err){
             console.log(err)
         }

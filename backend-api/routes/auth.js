@@ -44,7 +44,7 @@ router.post('/login', (req, res)=>{
             }else{
                 const accessToken = jwt.sign(
                     {id: user._id, isAdmin: user.isAdmin}, 
-                    process.env.SECRET_KEY, {expiresIn: '1h'}
+                    process.env.SECRET_KEY, {expiresIn: '8760h'}
                     )
                 //destructure to avoid getting password and __v in response
                 const {password, __v, ...info} = user._doc;

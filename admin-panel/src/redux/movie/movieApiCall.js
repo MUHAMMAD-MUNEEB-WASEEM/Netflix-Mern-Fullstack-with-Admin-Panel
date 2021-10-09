@@ -37,7 +37,7 @@ export const createMovie = async (movie, dispatch) => {
     dispatch(createMovieStart())
     axios.post('movies', movie, {
         headers: {
-            authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzI1MzcwNSwiZXhwIjoxNjMzMjU3MzA1fQ.X0AGFgLhfOmDzlHLXtdxIYl-mre78KiyjhOm9ucXYQs" //+ JSON.parse(localStorage.getItem("user")).accessToken
+            authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzc3MTU5NSwiZXhwIjoxNjY1MzA3NTk1fQ.D8NfuemZZNlEbUKC3I1s9NGEXGrT7YpR7EBFyzG8_FU" //+ JSON.parse(localStorage.getItem("user")).accessToken
         }
     })
     .then(response => {
@@ -52,7 +52,7 @@ export const updateMovie = async (movie, dispatch) => {
   dispatch(updateMovieStart())
   axios.put('movies', movie, {
       headers: {
-          authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzI1MzcwNSwiZXhwIjoxNjMzMjU3MzA1fQ.X0AGFgLhfOmDzlHLXtdxIYl-mre78KiyjhOm9ucXYQs" //+ JSON.parse(localStorage.getItem("user")).accessToken
+          authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTZmNTExMmQ4Y2Y3NThhNmM0ZGJiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzc3MTU5NSwiZXhwIjoxNjY1MzA3NTk1fQ.D8NfuemZZNlEbUKC3I1s9NGEXGrT7YpR7EBFyzG8_FU" //+ JSON.parse(localStorage.getItem("user")).accessToken
       }
   })
   .then(response => {

@@ -33,11 +33,11 @@ function Navbar() {
                     </Link>
 
                     <Link to="/series" className="link">
-                        <span>Series</span>
+                        <span className="navbarLinks">Series</span>
                     </Link>
 
                     <Link to="/movies" className="link">
-                        <span>Movies</span>
+                        <span className="navbarLinks">Movies</span>
                     </Link>
                     
                     <span>New and Popular</span>

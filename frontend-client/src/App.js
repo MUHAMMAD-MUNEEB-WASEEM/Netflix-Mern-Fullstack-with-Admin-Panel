@@ -5,13 +5,18 @@ import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Watch from './pages/watch/Watch';
 import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 
 function App() {
 
   const user = useSelector(state=>state.user.user)
+
+  useEffect(()=>{
+    localStorage.setItem("user", JSON.stringify(user))//user is not name of store, it the name of key inside state
+  }, [user])
+
 
   return (
     <Router>
