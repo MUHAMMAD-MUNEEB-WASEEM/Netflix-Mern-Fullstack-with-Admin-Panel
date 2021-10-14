@@ -24,19 +24,22 @@ Develop backend using nodejs, express and mongodb for database alongwith firebas
 
 Frontend is build using reactjs and scss along with material ui designing tool
 
-* Repo Link: 
+* Repo Link: https://github.com/MUHAMMAD-MUNEEB-WASEEM/netflix-frontend-react-scss.git
 
 ### Dependencies:
 
 1. yarn add react-router-dom 
 2. yarn add axios
+3. yarn add redux
+4. yarn add @reduxjs/toolkit
+5. yarn add react-redux
 
 3.	About Admin Panel:
 
 It is also build using reactjs
 
-* Repo Link:
-* App Link
+* Repo Link: https://github.com/MUHAMMAD-MUNEEB-WASEEM/react-admin-dashboard.git
+* App Link: https://admin-panel-c0138.web.app/users
 
 ### Dependencies:
 
